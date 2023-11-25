@@ -3,11 +3,15 @@ import { Navbar } from '../Components/Navbar';
 import { json } from 'react-router-dom';
 import { Spinner } from "@material-tailwind/react";
 import { Card, CardHeader, CardBody, CardFooter, Typography, Button, Dialog, DialogHeader, DialogBody, DialogFooter, } from "@material-tailwind/react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import Footer from '../Components/Footer';
 
 export const Homepage = () => {
 
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
+    const [sort, setSort] = useState('asc');
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
     const [open, setOpen] = React.useState(false);
@@ -22,7 +26,7 @@ export const Homepage = () => {
         const fetchFoodItems = async () => {
             try {
                 setLoading(true)
-                const apiUrl = `https://alive-blazer-tick.cyclic.app/data?q=${''}`;
+                const apiUrl = `https://alive-blazer-tick.cyclic.app/data?q=${query}`;
 
                 const res = await fetch(apiUrl);
 
@@ -42,40 +46,49 @@ export const Homepage = () => {
         };
 
         fetchFoodItems();
-    }, [])
+    }, [query])
 
-
+    useEffect(() => {
+        Aos.init();
+    }, []);
 
     return (
         <div>
-            <Navbar />
+            <Navbar query={query} setQuery={setQuery} />
             {loading ? (
-                <Spinner color="pink" />
+                <Spinner color="pink" className='m-auto p-auto mt-20' />
             ) : (
-                <div className="grid grid-cols-3 m-auto p-auto mt-16">
-                    {data?.map((el) => (
-                        <Card key={el.id} className="mt-6 w-96 m-auto p-auto mb-12" onClick={() => handleOpen(el)}>
-                            <CardHeader color="blue-gray" className="relative h-56">
-                                <img
-                                    src={el.image}
-                                    alt="card-image"
-                                />
-                            </CardHeader>
-                            <CardBody>
-                                <Typography variant="h5" color="blue-gray" className="mb-2">
-                                    {el.name}
-                                </Typography>
-                                <Typography>
-                                    {el.description}
-                                </Typography>
-                            </CardBody>
-                            <CardFooter className="pt-0">
-                                <Button onClick={() => handleOpen(el)} variant="gradient">
-                                    ADD
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    ))}
+                <div className="grid grid-cols-2 md:grid-cols-3 m-auto p-auto mt-8 md:mt-16">
+                    {
+                        data.length == 0 ?
+                            <p className='text-[20px] text-red-800 text-bold m-auto p-auto'>No Items !! You can try something else.</p> :
+                            data?.map((el) => (
+                                <Card key={el.id} className="mt-6 w-36 md:w-60 lg:w-72 xl:w-96 m-auto p-auto mb-12" onClick={() => handleOpen(el)}
+                                    data-aos="fade-up" data-aos-duration="1000">
+                                    <CardHeader color="blue-gray" className="relative w-fit h-fit md:h-56">
+                                        <div className='w-fit h-fit'>
+                                            <img
+                                                src={el.image}
+                                                alt="card-image"
+                                            />
+                                        </div>
+
+                                    </CardHeader>
+                                    <CardBody className=' lg:flex justify-between'>
+                                        <Typography variant="h5" color="blue-gray" className="mb-2 text-[12px] md:text-[20px] text-semibold text-black">
+                                            {el.name}
+                                        </Typography>
+                                        <Typography className="mb-2 text-[12px] md:text-[20px] text-semibold text-red-600">
+                                            $ {el.price}
+                                        </Typography>
+                                    </CardBody>
+                                    <CardFooter className="pt-0">
+                                        <Button onClick={() => handleOpen(el)} variant="gradient">
+                                            ADD
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+                            ))}
                     <Dialog
                         open={open}
                         handler={() => setOpen(false)}
@@ -126,6 +139,7 @@ export const Homepage = () => {
                 </div>
             )
             }
+            <Footer />
         </div >
     )
 }

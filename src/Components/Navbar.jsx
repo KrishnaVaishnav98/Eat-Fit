@@ -10,7 +10,12 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { Menu, MenuHandler, MenuList, MenuItem, Button } from "@material-tailwind/react";
 import { Tooltip } from "@material-tailwind/react";
 
-export const Navbar = () => {
+export const Navbar = ({ query, setQuery }) => {
+
+    const handleChange = (e) => {
+        setQuery(e.target.value)
+    }
+
     return (
         <>
             <div className='sticky px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between'>
@@ -49,7 +54,7 @@ export const Navbar = () => {
                 <div className='flex gap-6'>
                     <div className='flex items-center mx-1 lg:mx-0 w-full lg:w-64 h-10 bg-gray-200 px-2 rounded'>
                         <BiSearchAlt size={'24px'} />
-                        <input className='border-none bg-gray-200 outline-none px-2' type="text" placeholder='Search food' />
+                        <input className='border-none bg-gray-200 outline-none px-2' type="text" placeholder='Search food' value={query} onChange={handleChange} />
                     </div>
                     <div className='hidden lg:flex gap-6 justify-around items-center'>
                         <IoLocationOutline size={'24px'} />
