@@ -55,9 +55,9 @@ export const Navbar = ({ query, setQuery }) => {
                     </div>
                 </div>
                 <div className='flex gap-6'>
-                    <div className='flex items-center mx-1 lg:mx-0 w-full lg:w-64 h-10 bg-gray-200 px-2 rounded'>
+                    <div className='flex items-center mx-1 lg:mx-0 w-full lg:w-64 h-10 bg-gray-50 px-2 rounded-xl'>
                         <BiSearchAlt size={'24px'} />
-                        <input className='border-none bg-gray-200 outline-none px-2' type="text" placeholder='Search food' value={query} onChange={handleChange} />
+                        <input className='border-none bg-gray-50 outline-none px-2' type="text" placeholder='Search food' value={query} onChange={handleChange} />
                     </div>
                     <div className='hidden lg:flex gap-6 justify-around items-center'>
                         <IoLocationOutline size={'24px'} />

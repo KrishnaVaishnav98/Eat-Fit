@@ -83,6 +83,9 @@ export const Homepage = () => {
         Aos.init();
     }, []);
 
+    const removeSort = () => {
+        setSort("")
+    }
 
     const handleSortAsc = () => {
         setSort("asc")
@@ -95,7 +98,7 @@ export const Homepage = () => {
     return (
         <div>
             <Navbar query={query} setQuery={setQuery} />
-            <Filters sort={sort} handleSortAsc={handleSortAsc} handleSortDesc={handleSortDesc} />
+            <Filters sort={sort} handleSortAsc={handleSortAsc} handleSortDesc={handleSortDesc} removeSort={removeSort} />
             {loading ? (
                 <Spinner color="pink" className='m-auto p-auto mt-20' />
             ) : (
