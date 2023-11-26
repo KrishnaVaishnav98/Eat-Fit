@@ -29,7 +29,7 @@ const Footer = () => {
 
     return (
         // <Center bgColor={"black"} >
-        <Box bgColor={"black"} color="white" p={{ base: "10px", sm: "20px", md: "30px", lg: "50px", xl: "50px" }} display={{ base: 'block', sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }} justifyContent={'space-between'} >
+        <Box id="about" bgColor={"black"} color="white" p={{ base: "10px", sm: "20px", md: "30px", lg: "50px", xl: "50px" }} display={{ base: 'block', sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }} justifyContent={'space-between'} >
             <VStack margin={'auto'} p={'auto'} alignItems={{ base: "center", sm: "center", md: "center", lg: "flex-start", xl: "flex-start" }}>
                 <Box w="80px">
                     {/* <Image src={logo} alt="logo" /> */}

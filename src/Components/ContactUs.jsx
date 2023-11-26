@@ -1,15 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Alert } from "@material-tailwind/react";
 
 export const ContactUs = () => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [msg, setMsg] = useState('');
+    const [alert, setAlert] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
     useEffect(() => {
         Aos.init();
     }, []);
 
+    const handleSubmit = () => {
+        if (!name || !email || !msg) {
+            setAlert(true)
+        }
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setAlert(false)
+        setOpen(false)
+    }
+
     return (
-        <div className='bg-blue-900 rounded-2xl ' data-aos="fade-up" data-aos-duration="1000">
+        <div id="contact" className='contact-us bg-blue-900 rounded-2xl ' data-aos="fade-up" data-aos-duration="1000">
             <section className="text-white body-font relative">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-12" data-aos="fade-left" data-aos-duration="1000">
@@ -33,6 +51,9 @@ export const ContactUs = () => {
                                         id="name"
                                         name="name"
                                         className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder='name'
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                     />
                                 </div>
                             </div>
@@ -49,6 +70,9 @@ export const ContactUs = () => {
                                         id="email"
                                         name="email"
                                         className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder='email'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </div>
                             </div>
@@ -64,15 +88,29 @@ export const ContactUs = () => {
                                         id="message"
                                         name="message"
                                         className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                                        value={msg}
+                                        onChange={(e) => setMsg(e.target.value)}
+                                        placeholder='write here...'
                                     ></textarea>
                                 </div>
                             </div>
                             <div className="p-2 w-full">
-                                <button className="flex mx-auto text-white bg-red-700 border-0 py-2 px-8 focus:outline-none hover:bg-red-900 rounded text-lg">
+                                <button className="flex mx-auto text-white bg-red-700 border-0 py-2 px-8 focus:outline-none hover:bg-red-900 rounded text-lg"
+                                    onClick={handleSubmit}
+                                >
                                     Send
                                 </button>
                             </div>
-
+                            <Alert
+                                open={open}
+                                onClose={handleClose}
+                                animate={{
+                                    mount: { y: 0 },
+                                    unmount: { y: 100 },
+                                }}
+                            >
+                                {alert ? "Please fill all details" : "Your message reached to us !!"}
+                            </Alert>
                         </div>
                     </div>
                 </div>

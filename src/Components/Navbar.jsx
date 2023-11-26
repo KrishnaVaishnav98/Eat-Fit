@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../Images/eat_fit_logo.png'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import { BiSearchAlt } from "react-icons/bi";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdFoodBank } from "react-icons/md";
@@ -18,7 +18,7 @@ export const Navbar = ({ query, setQuery }) => {
 
     return (
         <>
-            <div className='bg-white px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between sticky top-0 z-50 bg-opacity-70'>
+            <div className='bg-white px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between lg:sticky lg:top-0 lg:z-50 lg:bg-opacity-70'>
                 <div className='flex items-center gap-6 pb-4 lg:pb-0 justify-between items-center'>
                     <div className='flex lg:hidden'>
                         <Menu >
@@ -28,23 +28,23 @@ export const Navbar = ({ query, setQuery }) => {
                                 </Button>
                             </MenuHandler>
                             <MenuList>
-                                <MenuItem><Link to={"/"}>Order</Link></MenuItem>
-                                <MenuItem><Link to={"/"}>Meal Plans</Link></MenuItem>
-                                <MenuItem><Link to={"/"}>Contact Us</Link></MenuItem>
-                                <MenuItem><Link to={"/"}>Food Pass</Link></MenuItem>
-                                <MenuItem><Link to={"/"}>About Us</Link></MenuItem>
+                                <MenuItem className='cursor-pointer'><Link to={"main"}>Order</Link></MenuItem>
+                                <MenuItem className='cursor-pointer'><Link to={"main"}>Meal Plans</Link></MenuItem>
+                                <MenuItem className='cursor-pointer'><Link to={"contact"}>Contact Us</Link></MenuItem>
+                                <MenuItem className='cursor-pointer'><Link to={"main"}>Food Pass</Link></MenuItem>
+                                <MenuItem className='cursor-pointer'><Link to={"about"}>About Us</Link></MenuItem>
                             </MenuList>
                         </Menu>
                     </div>
                     <div className='w-20 h-8'>
                         <img className='w-full' src={logo} alt="https://cdn.branch.io/branch-assets/1649145052553-og_image.jpg" />
                     </div>
-                    <div className='text-sm items-center leading-5 pt-2 font-semibold gap-6 hidden lg:flex'>
-                        <Link to={"/"}>Order</Link>
-                        <Link to={"/"}>Meal Plans</Link>
-                        <Link to={"/"}>Contact Us</Link>
-                        <Link to={"/"}>Food Pass</Link>
-                        <Link to={"/"}>About Us</Link>
+                    <div className='text-sm items-center leading-5 pt-2 font-semibold gap-6 hidden lg:flex cursor-pointer'>
+                        <Link to={"main"}>Order</Link>
+                        <Link to={"main"}>Meal Plans</Link>
+                        <Link activeClassName="active" to={"contact"} smooth={true} duration={500}>Contact Us</Link>
+                        <Link to={"main"}>Food Pass</Link>
+                        <Link to={"about"}>About Us</Link>
                     </div>
                     <div className='flex lg:hidden gap-6 justify-around items-center'>
 
@@ -67,7 +67,7 @@ export const Navbar = ({ query, setQuery }) => {
                     </div>
                 </div>
             </div>
-            <hr className='text-grey-400 sticky top-[88px] z-50' />
+            <hr className='text-grey-400 lg:sticky top-[120px] lg:top-[88px] z-50' />
         </>
     )
 }
