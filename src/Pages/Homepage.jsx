@@ -147,32 +147,32 @@ export const Homepage = () => {
                             unmount: { scale: 0.9, y: -100 },
                         }}
                         size="lg"
+                        className="max-w-2xl mx-auto"
                     >
-                        <DialogHeader >{selectedItem?.name}</DialogHeader>
                         <DialogBody >
-                            <div className='flex gap-8'>
-                                <div className='w-1/2'>
+                            <div className='lg:flex gap-2 md:gap-8'>
+                                <div className='w-full md:w-1/2'>
                                     <img
                                         className='w-full rounded'
                                         src={selectedItem.image}
                                         alt="card-image"
                                     />
                                 </div>
-                                <div className='w-1/2'>
-                                    <div className='mb-4 text-xl '>
+                                <div className='w-full md:w-1/2'>
+                                    <div className='mb-2 lg:mb-4 text-xl '>
                                         <p className='text-black'>{selectedItem?.name}</p>
                                     </div>
                                     <hr className='mb-4' />
-                                    <div className='flex justify-between mb-8'>
-                                        <p className='text-[24px] text-red-800'>$ {selectedItem?.price}</p>
+                                    <div className='flex justify-between mb-2 lg:mb-8'>
+                                        <p className='text-[16px] lg:text-[24px] text-red-800'>$ {selectedItem?.price}</p>
                                         <Button variant="gradient" color="green" onClick={() => setOpen(false)}>
                                             <span>Add</span>
                                         </Button>
                                     </div>
-                                    <hr className='mb-8' />
+                                    <hr className='mb-2 lg:mb-8' />
                                     <div>
-                                        <p className='pb-2 text-blue-800'>Category: {selectedItem?.category}</p>
-                                        <p className=''>{selectedItem?.description}</p>
+                                        <p className='pb-2 text-[12px] lg:text-[16px] text-blue-800'>Category: {selectedItem?.category}</p>
+                                        <p className='text-[12px] lg:text-[16px]'>{selectedItem?.description}</p>
                                     </div>
                                 </div>
                                 <hr />
