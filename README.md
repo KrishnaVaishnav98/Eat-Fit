@@ -4,7 +4,7 @@ EatFit offers you not only a nutritious, preservative-free meal, but also a vari
 
 ## Deployed on Vercel:
 
-- link: https://eat-ew0di85nx-vaishnavvidhi2312-gmailcom.vercel.app/
+- link: https://eat-lzdmdjrn9-vaishnavvidhi2312-gmailcom.vercel.app/
 
 # Different Sections of Website
 ### Homepage
@@ -25,7 +25,6 @@ EatFit offers you not only a nutritious, preservative-free meal, but also a vari
 - Chankra UI
 - Vercel
 - Cyclic
-
 
 ### How to run the Project locally
 ### Install
