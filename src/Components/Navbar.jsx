@@ -7,7 +7,7 @@ import { MdFoodBank } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
-import { Menu, MenuHandler, MenuList, MenuItem, Button } from "@material-tailwind/react";
+import { Menu, MenuHandler, MenuList, MenuItem, Button, Popover, PopoverHandler, PopoverContent } from "@material-tailwind/react";
 import { Tooltip } from "@material-tailwind/react";
 
 export const Navbar = ({ query, setQuery }) => {
@@ -18,7 +18,7 @@ export const Navbar = ({ query, setQuery }) => {
 
     return (
         <>
-            <div className='sticky px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between'>
+            <div className='bg-white px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between sticky top-0 z-50 bg-opacity-70'>
                 <div className='flex items-center gap-6 pb-4 lg:pb-0 justify-between items-center'>
                     <div className='flex lg:hidden'>
                         <Menu >
@@ -30,7 +30,9 @@ export const Navbar = ({ query, setQuery }) => {
                             <MenuList>
                                 <MenuItem><Link to={"/"}>Order</Link></MenuItem>
                                 <MenuItem><Link to={"/"}>Meal Plans</Link></MenuItem>
+                                <MenuItem><Link to={"/"}>Contact Us</Link></MenuItem>
                                 <MenuItem><Link to={"/"}>Food Pass</Link></MenuItem>
+                                <MenuItem><Link to={"/"}>About Us</Link></MenuItem>
                             </MenuList>
                         </Menu>
                     </div>
@@ -42,6 +44,7 @@ export const Navbar = ({ query, setQuery }) => {
                         <Link to={"/"}>Meal Plans</Link>
                         <Link to={"/"}>Contact Us</Link>
                         <Link to={"/"}>Food Pass</Link>
+                        <Link to={"/"}>About Us</Link>
                     </div>
                     <div className='flex lg:hidden gap-6 justify-around items-center'>
 
@@ -64,7 +67,7 @@ export const Navbar = ({ query, setQuery }) => {
                     </div>
                 </div>
             </div>
-            <hr />
+            <hr className='text-grey-400 sticky top-[88px] z-50' />
         </>
     )
 }

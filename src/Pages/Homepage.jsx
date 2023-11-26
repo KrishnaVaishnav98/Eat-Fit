@@ -6,12 +6,14 @@ import { Card, CardHeader, CardBody, CardFooter, Typography, Button, Dialog, Dia
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from '../Components/Footer';
+import { ContactUs } from '../Components/ContactUs';
+import { Filters } from '../Components/Filters';
 
 export const Homepage = () => {
 
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
-    const [sort, setSort] = useState('asc');
+    const [sort, setSort] = useState('');
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
     const [open, setOpen] = React.useState(false);
@@ -22,39 +24,78 @@ export const Homepage = () => {
         setOpen(true);
     };
 
-    useEffect(() => {
-        const fetchFoodItems = async () => {
-            try {
-                setLoading(true)
-                const apiUrl = `https://alive-blazer-tick.cyclic.app/data?q=${query}`;
+    const fetchFoodItems = async () => {
+        try {
+            setLoading(true)
+            const apiUrl = `https://alive-blazer-tick.cyclic.app/data?q=${query}`;
 
-                const res = await fetch(apiUrl);
+            const res = await fetch(apiUrl);
 
-                if (!res.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-
-                const data = await res.json();
-                setData(data);
-                console.log(data)
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-                setErr(true);
+            if (!res.ok) {
+                throw new Error('Failed to fetch data');
             }
-        };
 
-        fetchFoodItems();
-    }, [query])
+            const data = await res.json();
+            setData(data);
+            console.log(data)
+            setLoading(false);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false);
+            setErr(true);
+        }
+    };
+
+    const sortFoodItems = async () => {
+        try {
+            setLoading(true)
+            const apiUrl = `https://alive-blazer-tick.cyclic.app/data?q=${query}&_sort=price&_order=${sort}`;
+
+            const res = await fetch(apiUrl);
+
+            if (!res.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const data = await res.json();
+            setData(data);
+            console.log(data)
+            setLoading(false);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false);
+            setErr(true);
+        }
+    };
+
+
+    useEffect(() => {
+        if (sort) {
+            sortFoodItems()
+        } else {
+            fetchFoodItems();
+        }
+
+    }, [query, sort])
+
 
     useEffect(() => {
         Aos.init();
     }, []);
 
+
+    const handleSortAsc = () => {
+        setSort("asc")
+    }
+
+    const handleSortDesc = async () => {
+        setSort("desc")
+    }
+
     return (
         <div>
             <Navbar query={query} setQuery={setQuery} />
+            <Filters sort={sort} handleSortAsc={handleSortAsc} handleSortDesc={handleSortDesc} />
             {loading ? (
                 <Spinner color="pink" className='m-auto p-auto mt-20' />
             ) : (
@@ -139,6 +180,7 @@ export const Homepage = () => {
                 </div>
             )
             }
+            <ContactUs />
             <Footer />
         </div >
     )
