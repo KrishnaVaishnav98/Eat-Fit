@@ -4,7 +4,7 @@ EatFit offers you not only a nutritious, preservative-free meal, but also a vari
 
 ## Deployed on Vercel:
 
-- link: https://eat-lzdmdjrn9-vaishnavvidhi2312-gmailcom.vercel.app/
+- link: https://eat-bszdbnxzr-vaishnavvidhi2312-gmailcom.vercel.app/
 
 # Different Sections of Website
 ### Homepage
