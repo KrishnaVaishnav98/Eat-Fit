@@ -18,7 +18,7 @@ export const Navbar = ({ query, setQuery }) => {
 
     return (
         <>
-            <div className='bg-white px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between lg:sticky lg:top-0 lg:z-50 lg:bg-opacity-70'>
+            <div className='bg-white px-2 py-2 lg:px-8 lg:py-6 block lg:flex justify-between lg:sticky lg:top-0 lg:z-50 lg:bg-opacity-70' >
                 <div className='flex items-center gap-6 pb-4 lg:pb-0 justify-between items-center'>
                     <div className='flex lg:hidden'>
                         <Menu >

@@ -27,7 +27,7 @@ export const ContactUs = () => {
     }
 
     return (
-        <div id="contact" className='contact-us bg-blue-900 rounded-2xl ' data-aos="fade-up" data-aos-duration="1000">
+        <div id="contact" className='contact-us bg-blue-900 rounded-2xl ' data-aos="fade-up" data-aos-duration="1000" >
             <section className="text-white body-font relative">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-12" data-aos="fade-left" data-aos-duration="1000">

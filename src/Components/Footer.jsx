@@ -29,9 +29,9 @@ const Footer = () => {
 
     return (
         // <Center bgColor={"black"} >
-        <Box id="about" bgColor={"black"} color="white" p={{ base: "10px", sm: "20px", md: "30px", lg: "50px", xl: "50px" }} display={{ base: 'block', sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }} justifyContent={'space-between'} >
-            <VStack margin={'auto'} p={'auto'} alignItems={{ base: "center", sm: "center", md: "center", lg: "flex-start", xl: "flex-start" }}>
-                <Box w="80px">
+        <Box id="about" bgColor={"black"} color="white" p={{ base: "10px", sm: "20px", md: "30px", lg: "50px", xl: "50px" }} display={{ base: 'block', sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }} justifyContent={'space-between'} borderRadius={'15px'} >
+            <VStack margin={'auto'} p={'auto'} alignItems={{ base: "center", sm: "center", md: "center", lg: "flex-start", xl: "flex-start" }} >
+                <Box w="80px" >
                     {/* <Image src={logo} alt="logo" /> */}
                     <img className="rounded" src={logo} alt="Eat Fit" />
                 </Box>
@@ -45,7 +45,7 @@ const Footer = () => {
                 </Center>
             </VStack>
 
-            <Box display={'flex'} gap={'20px'} margin={'auto'} padding={'auto'} width={{ base: '90%', sm: '90%', md: '50%', lg: '50%', xl: '50%' }} mt={{ base: '10px', sm: '50px', md: '50px', lg: '0px', xl: '0px' }}>
+            <Box display={'flex'} gap={'20px'} margin={'auto'} padding={'auto'} width={{ base: '90%', sm: '90%', md: '50%', lg: '50%', xl: '50%' }} mt={{ base: '10px', sm: '50px', md: '50px', lg: '0px', xl: '0px' }} >
                 <VStack
                     align={"left"}
                     fontSize={{

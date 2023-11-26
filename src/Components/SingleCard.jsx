@@ -17,7 +17,7 @@ export function SingleCard() {
             <Button onClick={handleOpen} variant="gradient">
                 Open Dialog
             </Button>
-            <Dialog open={open} handler={handleOpen}>
+            <Dialog open={open} handler={handleOpen} >
                 <DialogHeader>Its a simple dialog.</DialogHeader>
                 <DialogBody>
                     The key to more success is to have a lot of pillows. Put it this way,

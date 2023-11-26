@@ -100,20 +100,20 @@ export const Homepage = () => {
     }
 
     return (
-        <div>
+        <div >
             <Navbar query={query} setQuery={setQuery} />
             <Filters query={query} setQuery={setQuery} sort={sort} handleSortAsc={handleSortAsc} handleSortDesc={handleSortDesc} removeSort={removeSort} />
             {loading ? (
                 <Spinner color="pink" className='m-auto p-auto mt-20' />
             ) : (
-                <div id='main' className="grid grid-cols-2 md:grid-cols-3 m-auto p-auto mt-8 md:mt-16">
+                <div id='main' className="grid grid-cols-2 md:grid-cols-3 m-auto p-auto mt-8 md:mt-16 ">
                     {
                         data.length == 0 ?
                             <p className='text-[20px] text-red-800 text-bold m-auto p-auto align-center py-16'><FaRegSadTear size={'24px'} />No Items !! You can try something else.</p>
                             :
                             data?.map((el) => (
                                 <Card key={el.id} className="mt-6 w-36 md:w-60 lg:w-72 xl:w-96 m-auto p-auto mb-12" onClick={() => handleOpen(el)}
-                                    data-aos="fade-up" data-aos-duration="1000">
+                                    data-aos="fade-up" data-aos-duration="1000" >
                                     <CardHeader color="blue-gray" className="relative w-fit h-fit md:h-56">
                                         <div className='w-fit h-fit'>
                                             <img
