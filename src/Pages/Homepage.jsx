@@ -15,10 +15,13 @@ export const Homepage = () => {
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
     const [sort, setSort] = useState('');
+
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
     const [open, setOpen] = React.useState(false);
     const [selectedItem, setSelectedItem] = useState({});
+
+
 
     const handleOpen = (item) => {
         setSelectedItem(item);
@@ -124,11 +127,12 @@ export const Homepage = () => {
                                         <Typography variant="h5" color="blue-gray" className="mb-2 text-[12px] md:text-[20px] text-semibold text-black">
                                             {el.name}
                                         </Typography>
+
+                                    </CardBody>
+                                    <CardFooter className="lg:flex justify-between pt-0">
                                         <Typography className="mb-2 text-[12px] md:text-[20px] text-semibold text-red-600">
                                             $ {el.price}
                                         </Typography>
-                                    </CardBody>
-                                    <CardFooter className="pt-0">
                                         <Button onClick={() => handleOpen(el)} variant="gradient">
                                             ADD
                                         </Button>
