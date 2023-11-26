@@ -11,8 +11,8 @@ export const Filters = ({ query, setQuery, sort, handleSortAsc, handleSortDesc, 
 
     return (
         <>
-            <div className='bg-white lg:flex justify-between h-[100px] lg:h-[50px] lg:sticky top=[100px] lg:top-[88px] z-50 bg-opacity-70 items-center' >
-                <div className='w-full lg:w-4/5 flex gap-4 justify-between items-center px-8 h-[50px] lg:h-[100px] text-[12px] lg:text-[16px]'>
+            <div className='bg-white md:flex justify-between h-[100px] lg:h-[50px] lg:sticky top=[100px] lg:top-[88px] z-50 bg-opacity-70 items-center' >
+                <div className='w-full lg:w-4/5 flex gap-8 justify-left  items-center px-8 h-[50px] lg:h-[100px] text-[12px] lg:text-[16px]'>
                     <div className='flex gap-2 items-center cursor-pointer' onClick={() => setQuery('salad')}>
                         <LuSalad color={'#8D3838'} />
                         <p>Salad</p>
@@ -34,7 +34,7 @@ export const Filters = ({ query, setQuery, sort, handleSortAsc, handleSortDesc, 
                     <div className='bg-red-50 p-2 hover:bg-red-100 rounded' onClick={handleSortAsc}>
                         <GoSortAsc size={"22px"} />
                     </div>
-                    <p className={`${sort ? 'bg-blue-100 px-4 rounded-lg' : ''} py-2 text-[12px] lg:text-md text-bold`} >price</p>
+                    <p className={`${sort ? 'bg-blue-100 px-4 rounded-lg' : ''} py-2 text-[12px] lg:text-[16px] text-bold`} >price</p>
                     <div className='bg-red-50 p-2 hover:bg-red-100 rounded' onClick={handleSortDesc}>
                         <GoSortDesc size={"22px"} />
                     </div>
